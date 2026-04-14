@@ -8,7 +8,7 @@ import {
 } from '../lib/calculations/fireCalculator';
 
 console.log("--------------------------------------------------");
-console.log("🔥 FIN-AI CALCULATION ENGINE TEST SUITE 🔥");
+console.log("🔥 FIN-CALC ENGINE TEST SUITE 🔥");
 console.log("--------------------------------------------------");
 
 // Test 1: Emergency Fund (6 months of monthly expenses)

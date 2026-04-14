@@ -1,7 +1,7 @@
 @echo off
 setlocal
 echo ========================================
-echo    ET Explorer - Launching Dev Orbit
+echo    FIRElytics - Launching Dev Orbit
 echo ========================================
 echo 1. Waking up the server...
 start /b cmd /c "npm run dev"

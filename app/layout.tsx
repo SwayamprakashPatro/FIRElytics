@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ET Explorer - Financial Orbit",
+  title: "FIRElytics - Financial Orbit",
   description: "Next-gen FIRE strategy simulator.",
 };
 

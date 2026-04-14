@@ -1,4 +1,4 @@
-# Next.js Supabase Starter Dash
+# FIRElytics
 
 This is a premium starter kit for Next.js 14+ with App Router, Tailwind CSS, and full Supabase integration. It includes pre-installed support for Chart.js, Markdown rendering, and modern UI components.
 
@@ -58,5 +58,3 @@ The application will be available at [http://localhost:3000](http://localhost:30
 - [React Markdown](https://github.com/remarkjs/react-markdown)
 
 ---
-
-Built by Antigravity AI @ Google Deepmind

@@ -24,3 +24,113 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 8mm;
+  }
+
+  /* Dashboard export: avoid white text on non-printed dark backgrounds */
+  .dashboard-print {
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Force readable text colors for HTML content only (leave SVG chart colors alone) */
+  .dashboard-print :where(*):not(svg):not(svg *) {
+    color: #000000 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove reliance on background graphics for legibility */
+  .dashboard-print
+    :where(div, header, main, section, article):not(svg):not(svg *) {
+    background: transparent !important;
+  }
+
+  /* Make layout more likely to fit a single page */
+  .dashboard-print {
+    font-size: 11px;
+  }
+
+  .dashboard-print main {
+    padding: 0 !important;
+    gap: 12px !important;
+    height: auto !important;
+  }
+
+  .dashboard-print header {
+    padding: 0 0 12px 0 !important;
+  }
+
+  /* Recharts container: shrink chart height for printing */
+  .dashboard-print .print-chart {
+    height: 220px !important;
+    min-height: 220px !important;
+  }
+
+  /* Prevent flex panels from expanding and wasting vertical space */
+  .dashboard-print .dashboard-panel {
+    display: block !important;
+  }
+
+  .dashboard-print .dashboard-panel .flex-1 {
+    flex: 0 0 auto !important;
+  }
+
+  .dashboard-print .dashboard-panel-left,
+  .dashboard-print .dashboard-panel-right {
+    padding: 10px !important;
+  }
+
+  .dashboard-print .dashboard-chart-shell {
+    padding: 8px !important;
+  }
+
+  /* Remove min-height constraints that cause large blank areas in print */
+  .dashboard-print [class*="min-h-"] {
+    min-height: auto !important;
+  }
+
+  /* Slightly reduce card padding in the right panel */
+  .dashboard-print .dashboard-panel-right .rounded-2xl {
+    padding: 10px !important;
+  }
+
+  /* Make chart readable on white paper (the UI uses white strokes on dark bg) */
+  .dashboard-print :where(svg, svg *) {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .dashboard-print .recharts-area-curve {
+    stroke: #111111 !important;
+  }
+
+  .dashboard-print .recharts-area-area {
+    fill: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .dashboard-print .recharts-cartesian-grid line {
+    stroke: #d4d4d4 !important;
+  }
+
+  .dashboard-print .recharts-text,
+  .dashboard-print .recharts-label {
+    fill: #000000 !important;
+  }
+
+  .dashboard-print .recharts-reference-line line {
+    stroke: #111111 !important;
+  }
+
+  /* Avoid awkward breaks inside cards */
+  .dashboard-print :where(section, article, .card) {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
